@@ -5,6 +5,7 @@
 int main() {
     int choice;
     char text[100] = "";
+    size_t len;
 
     while (1) {
 
@@ -17,11 +18,11 @@ int main() {
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
-        size_t len;
 
         switch (choice) {
             case 1:
                 printf("Enter text: ");
+
                 while (getchar() != '\n');
                 fgets(text, sizeof(text), stdin);
                 len = strlen(text);
@@ -29,6 +30,7 @@ int main() {
                     text[len - 1] = '\0';
                 }
                 break;
+
             case 2:
                 printf("Text: %s\n", text);
                 break;
@@ -46,12 +48,13 @@ int main() {
                 }
                 printf("Text converted to upper case: %s\n", text);
                 break;
+
             case 5:
                 printf("Exiting...\n");
                 return 0;
 
             default:
-                printf("Choose a right option.\n");
+                printf("Invalid choice. Please try again.\n");
                 break;
         }
     }

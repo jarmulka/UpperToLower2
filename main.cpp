@@ -19,12 +19,39 @@ int main() {
         switch (choice) {
             case 1:
                 printf("Enter text: ");
-                // Clear the input buffer
                 while (getchar() != '\n');
                 fgets(text, sizeof(text), stdin);
-                // Remove the newline character at the end if present
                 size_t len = strlen(text);
                 if (len > 0 && text[len - 1] == '\n') {
                     text[len - 1] = '\0';
                 }
                 break;
+            case 2:
+                printf("Text: %s\n", text);
+                break;
+
+            case 3:
+                for (int i = 0; text[i] != '\0'; i++) {
+                    text[i] = tolower(text[i]);
+                }
+                printf("Text converted to lower case: %s\n", text);
+                break;
+
+            case 4:
+                for (int i = 0; text[i] != '\0'; i++) {
+                    text[i] = toupper(text[i]);
+                }
+                printf("Text converted to upper case: %s\n", text);
+                break;
+            case 5:
+                printf("Exiting...\n");
+                return 0;
+
+            default:
+                printf("Choose a right option.\n");
+                break;
+        }
+    }
+
+    return 0;
+}

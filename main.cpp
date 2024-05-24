@@ -16,12 +16,15 @@ int main() {
         printf("5. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
+
+        size_t len;
+
         switch (choice) {
             case 1:
                 printf("Enter text: ");
                 while (getchar() != '\n');
                 fgets(text, sizeof(text), stdin);
-                size_t len = strlen(text);
+                len = strlen(text);
                 if (len > 0 && text[len - 1] == '\n') {
                     text[len - 1] = '\0';
                 }
